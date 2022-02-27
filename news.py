@@ -15,4 +15,5 @@ def Index():
     news = []
     image = []
 
-    
+    for i in range(len(articles)):
+        all_articles = [articles[i]]
