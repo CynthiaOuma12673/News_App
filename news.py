@@ -21,3 +21,5 @@ def Index():
         news.append(all_articles['title'])
         description.append(all_articles['description'])
         image.append(all_articles['urlToImage'])
+
+    articles_list = zip(news, description, image)
