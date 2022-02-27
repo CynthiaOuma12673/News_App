@@ -16,7 +16,14 @@
             <h1>NEWS APP</h1>
         </div>
 
-        
+        <div class="news">
+            {% for news, description, i in context%}
+            <img src="{{i}}">
+            <h2>News:</h2> {{news}}
+            <h3>Description:</h3>{{description}}
+
+            {% endfor%}
+        </div>
     </div>
     
 </body>
