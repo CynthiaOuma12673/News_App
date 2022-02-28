@@ -1,6 +1,5 @@
 import unittest
-from models import new
-New = new.New
+from new import New
 
 class NewTest(unittest.TestCase):
     '''
@@ -11,10 +10,10 @@ class NewTest(unittest.TestCase):
         '''
         Set up method that will run before every test
         '''
-        self.new_new = New()
+        self.new_new = New('','','')
 
     def test_instance(self):
-        self.assertTrue(is instance(self.new_new, New))
+        self.assertTrue(isinstance(self.new_new, New))
 
 
 if __name__ == '__main__':
