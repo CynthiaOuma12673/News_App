@@ -1,39 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if title %}
-    <title>{{ title }}</title>
-    {% else %}
-    <title>News-app</title>
-    {% endif %}
-    <!-- font roboto -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"rel="stylesheet">
-</head>
-<body>
-    {% extends 'base.html' %}
-    {% import 'macros.html' as macro%}
-        {% block content %}
-    <!-- bbc news -->
-        <h3>BBC News</h3>
-    <ul>
-        {{ macro.diaplayNewList(bbc-news)}}
-    </ul> 
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
 
-    <!-- Aljazeera -->
-    <h3>Aljazeera News</h3>
-    <ul>
-        {{ macro.diaplayNewList(al-jazeera-english)}}
-    </ul> 
+{% block content %}
+    <div class="row">
+        <div class="col-md-4">
+            <div class="">
+                GET NEWS HERE
+            </div>
+            <div>
+                {{ macro.displayNewList(category) }}
+            </div>
+        </div>
 
-    <!-- abc news -->
-    <h3>ABC News</h3>
-    <ul>
-        {{ macro.diaplayNewList(abc-news)}}
-    </ul> 
-        {% endblock %}
-    
-</body>
-</html>
+        <div class="col-md-4">
+            <div>
+                YOUR LATEST NEWS ARE HERE
+            </div>
+            <div>
+                {{ macro.displayNewList(new_list) }}
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div>
+                THE SOURCES ARE HERE
+            </div>
+            <div>
+                {{} macro.displaySource(source_list) }}
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %
