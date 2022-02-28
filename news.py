@@ -1,5 +1,6 @@
 from flask import Flask, render_template
-from newsapi import NewsApiClient  
+from newsapi import NewsApiClient 
+from flask_bootstrap import Bootstrap 
 
 app = Flask(__name__)
 
@@ -12,19 +13,23 @@ def Index():
     articles = top_headlines['articles']
 
     description = []
-    news = []
+    # news = []
     image = []
+    time = []
 
     for i in range(len(articles)):
         all_articles = articles[i]  
 
-        news.append(all_articles['title'])
+        # news.append(all_articles['title'])
         description.append(all_articles['description'])
         image.append(all_articles['urlToImage'])
+        time.append(all_articles['publishedAt'])
 
-    articles_list = zip(news, description, image)
+
+    articles_list = zip(description, image, time)
 
     return render_template('index.html', context = articles_list)
+
 
 if __name__ == "__main__":
     app.run(debug = True)

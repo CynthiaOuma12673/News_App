@@ -12,15 +12,16 @@
 </head>
 <body>
     <div class="container">
-        <div class="heading">
+        <div class="heading text-center">
             <h1>NEWS APP</h1>
         </div>
 
         <div class="news">
             {% for news, description, i in context%}
             <img src="{{i}}">
-            <h2>News:</h2> {{news}}
+            <!-- <h2>News:</h2> {{news}} -->
             <h3>Description:</h3>{{description}}
+            <h4>Published at:</h4>{{time}}
 
             {% endfor%}
         </div>
