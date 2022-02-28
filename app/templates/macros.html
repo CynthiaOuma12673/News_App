@@ -25,3 +25,12 @@
     {% endfor %}
 
 {% endmacro %}
+
+{% macro displaySource(source_list) %}
+
+    {% for source in source_list %}
+        <li>
+            <a href="/article/{{source.id}}">{{ source.name }}</a>
+        </li>
+    {% endfor %}
+{% endmacro %}
