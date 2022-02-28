@@ -64,3 +64,19 @@ def process_headline_results(headline_list):
                     headline_results.append(headline_object)
 
     return headline_results
+
+def get_category(category):
+    '''
+    this is a function that gets the json response to our url for request
+    '''
+    get_category_url = category_url.format(category, api_key)
+    with urllib.request.urlopen(get_category_url) as url:
+        get_category_data = url.read()
+        get_category_response = json.loads(get_category_data)
+        category_results = None
+
+        if get_category_response['articles']:
+            category_results_list = get_category_response['articles']
+            category_results = process_headline_results(category_results_list)
+
+    return category_results
