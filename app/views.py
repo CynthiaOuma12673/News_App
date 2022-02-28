@@ -7,4 +7,5 @@ def index():
     '''
     view root page that returns the index page and its data
     '''
-    return render_template('index.html')
+    title = 'Home - Welcome to the News App'
+    return render_template('index.html', title = title)
