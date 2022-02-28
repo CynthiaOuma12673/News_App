@@ -22,3 +22,19 @@ def configure_request(app):
     category_url = app.config['CATEGORY_URL']
     source_url = app.config['SOURCE_URL']
     headline_url = app.config['HEADLINE_URL']
+
+def get_headlines():
+    '''
+    this is a function that will get the json response for the headlines
+    '''
+    get_headline_url = headline_url.format(api_key)
+    with urllib.request.urlopen(get_headline_url) as url:
+        get_headline_data = url.read()
+        get_headline_response = json.loads(get_headline_data)
+        headline_results = None
+
+        if get_headline_response['articles']:
+            headline_results_list = get_headline_response['articles']
+            headline_results = process_headline_results(headline_results_list)
+
+    return headline_results
