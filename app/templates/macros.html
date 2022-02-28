@@ -14,3 +14,14 @@
     {% endfor %}
 
 {% endmacro %}
+
+{% macro displayNewList(new_list) %}
+
+    {% for new in new_list %}
+    <li>
+        <span>{{new.publishedAt}}</span><a href="{{new.url}}">{{new.title}}</a>
+        <a href="new.url">ReadMore</a>
+    </li>
+    {% endfor %}
+
+{% endmacro %}
