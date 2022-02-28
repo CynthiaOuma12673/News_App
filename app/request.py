@@ -27,3 +27,21 @@ def get_news(category):
             new_results = process_results(new_results_list)
 
     return new_results
+
+def process_results(new_list):
+    '''
+    a function that proesses the new result and transform them to list of objects
+    Returns :
+    new_results: a list of news objects
+    '''
+
+    new_results = []
+    for new_item in new_list:
+        description = new_item.get('description')
+        publishedAt = new_item.get('publishedAt')
+        urlToImage = new_item.get('urlToImage')
+
+        if description:
+            new_object = New(description, publishedAt, urlToImage)
+            new_results.append(new_object)
+    return new_results
