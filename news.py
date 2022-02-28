@@ -1,3 +1,4 @@
+from app import app
 from flask import Flask, render_template
 from newsapi import NewsApiClient 
 from flask_bootstrap import Bootstrap 
