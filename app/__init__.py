@@ -2,7 +2,7 @@ from flask import Flask
 from config import config_options
 from flask_bootstrap import Bootstrap
 
-# bootstrap =Bootstrap(app)
+bootstrap =Bootstrap()
 
 # initializing application
 def create_app(config_name):
@@ -17,11 +17,11 @@ def create_app(config_name):
     bootstrap.init_app(app)
 
     # blueprint registration
-    from .models import models_blueprint
-    app.register_blueprint(models_blueprint)
+    from .main import main as main_blueprint
+    app.register_blueprint(main_blueprint)
 
-    from .request import configure_request
-    configure_request(app)
+    # from .request import configure_request
+    # configure_request(app)
 
     return app
 

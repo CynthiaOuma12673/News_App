@@ -1,7 +1,9 @@
 from flask import render_template
-from app import app
+from . import main
 
-@app.route('/')
+# from models import Article, Source
+
+@main.route('/')
 def index():
 
     '''

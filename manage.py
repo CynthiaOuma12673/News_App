@@ -5,7 +5,7 @@ app = create_app('development')
 
 manager = Manager(app)
 manager.add_command('server', Server)
-@manager.add_command
+@manager.command
 def test():
     '''
     This function will run the unit tests

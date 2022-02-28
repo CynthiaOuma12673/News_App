@@ -1,7 +1,7 @@
 from flask import render_template
-from .import models
+from .import main
 
-@models.app_errorhandler(404)
+@main.app_errorhandler(404)
 def four_zero_four(error):
     '''
     A function that gives the error when a page is missing
@@ -9,6 +9,6 @@ def four_zero_four(error):
 
     return render_template('notfound.html'),404
 
-@models.app_errorhandler(500)
+@main.app_errorhandler(500)
 def internal_error(error):
     return render_template('notfound.html'),500
