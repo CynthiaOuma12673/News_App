@@ -115,4 +115,22 @@ def process_source_results(source_list):
     return source_results
 
 
+def get_source_articles(id):
+    '''
+    this is a function that gets the json response to our source request
+    '''
+    get_source_article_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'.format(id,api_key)
+    with urllib.request.urlopen(get_source_article_url) as url:
+        get_source_data = url.read()
+        get_source_response = json.loads(get_source_data)
+        
+        source_results = None
+        
+        if get_source_response['articles']:
+            source_results_list =get_source_response['articles']
+            source_results = process_source_article_results(source_results_list)
+            
+    return source_results
+
+
 
