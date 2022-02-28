@@ -8,6 +8,8 @@ def index():
     '''
     view root page that returns the index page and its data
     '''
-    pupular_news = get_news('popular')
+    bbc_news = get_news('bbc-news')
+    aljazeera_news = get_news('al-jazeera-english')
+    abc_news = get_news('abc-news')
     title = 'Home - Welcome to the News App'
-    return render_template('index.html', title = title, popular = popular_news)
+    return render_template('index.html', title = title, bbc_news = bbc-news, aljazeera_news = al-jazeera-english, abc_news = abc-news )
