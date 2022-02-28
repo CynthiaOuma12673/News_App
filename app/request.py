@@ -80,3 +80,22 @@ def get_category(category):
             category_results = process_headline_results(category_results_list)
 
     return category_results
+
+def get_source():
+    '''
+    this is a function that gets the json response to our source request
+    '''
+    get_source_url = source_url.format(api_key)
+    with urllib.request.urlopen(get_source_url) as url:
+        get_source_article_data = url.read()
+        get_source_article_response = json.loads(get_source_article_data)
+        get_source_article_results = None
+
+        if get_source_article_response['sources']:
+            source_results_list = get_source_article_response['sources']
+            source_articles_results = process_source_results(source_results_list)
+
+    return source_results_list
+
+
+
