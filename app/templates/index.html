@@ -15,12 +15,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"rel="stylesheet">
 </head>
 <body>
-    <h3>Popular News</h3>
+    {% import 'macros.html' as macro%}
+
+    <!-- bbc news -->
+        <h3>BBC News</h3>
     <ul>
-        {% for popular_new in popular %}
-        <li>{{ popular_new.description }}</li>
-        {% endfor %}
-    </ul>
+        {{ macro.diaplayNewList(bbc-news)}}
+    </ul> 
+
+    <!-- Aljazeera -->
+    <h3>Aljazeera News</h3>
+    <ul>
+        {{ macro.diaplayNewList(al-jazeera-english)}}
+    </ul> 
+
+    <!-- abc news -->
+    <h3>ABC News</h3>
+    <ul>
+        {{ macro.diaplayNewList(abc-news)}}
+    </ul> 
     
 
 
