@@ -97,5 +97,22 @@ def get_source():
 
     return source_results_list
 
+def process_source_results(source_list):
+    '''
+    this is a function  that will process the source result and then change them to a list of Objects
+    '''
+    source_results= []
+    for source_item in source_list:
+        id = source_item.get('id')
+        name = source_item.get('name')
+        url = source_item.get('url')
+        description = source_item.get('description')
+        
+        if url:
+            source_object = Source(id,name,url,description)
+            source_results.append(source_object)
+
+    return source_results
+
 
 
