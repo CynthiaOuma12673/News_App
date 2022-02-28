@@ -1,6 +1,7 @@
 import urllib.request, json
 from flask.templating import render_template
 from .models import Article,Source
+import datetime,timeago
 
 
 api_key = None
@@ -36,5 +37,30 @@ def get_headlines():
         if get_headline_response['articles']:
             headline_results_list = get_headline_response['articles']
             headline_results = process_headline_results(headline_results_list)
+
+    return headline_results
+
+def process_headline_results(headline_list):
+    '''
+    Function  that processes the headline result and transform them to a list of Objects
+    '''
+    headline_results = []
+    for headline_item in headline_list:
+        image = headline_item.get('urlToImage')
+        title = headline_item.get ('title')
+        author = headline_item.get('author')
+        description = headline_item.get('description')
+        publishedAt = headline_item.get('publishedAt')
+        url = headline_item.get('url')
+        
+        date_time_readable = datetime.datetime.strptime(publishedAt, '%Y-%m-%dT%H:%M:%SZ')
+        now = datetime.datetime.now() + datetime.timedelta(seconds = 60 * 3.4)
+        publishedAt =timeago.format(date_time_readable, now)
+        
+        if image:
+            if description:
+                if publishedAt:
+                    headline_object = Article(image,title,author,description,publishedAt,url)
+                    headline_results.append(headline_object)
 
     return headline_results
