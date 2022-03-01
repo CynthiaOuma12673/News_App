@@ -3,33 +3,33 @@
 
 {% block content %}
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="">
                 GET NEWS HERE
             </div>
             <div>
-                {{ macro.displayNewList(new_list) }}
+                {{ macro.displayNewList(category) }}
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div>
                 YOUR LATEST NEWS ARE HERE
             </div>
             <div>
-                {{ macro.displayNewList(new_list) }}
+                {{ macro.displayNewList(articles) }}
             </div>
         </div>
 
-        <div class="col-md-4">
+        <!-- <div class="col-md-4">
             <div>
                 THE SOURCES ARE HERE
             </div>
             <div>
-                {{} macro.displaySource(source_list) }}
+                {{ macro.displaySources(source_list) }}
             </div>
 
-        </div>
+        </div> -->
 
     </div>
-{% endblock %
+{% endblock %}

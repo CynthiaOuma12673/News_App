@@ -17,7 +17,7 @@
                 YOUR LATEST NEWS ARE HERE
             </div>
             <div>
-                {{ macro.displayNewList(category) }}
+                {{ macro.displayHeadlineList(category) }}
             </div>
         </div>
 
@@ -26,10 +26,10 @@
                 THE SOURCES ARE HERE
             </div>
             <div>
-                {{} macro.displaySource(source_list) }}
+                {{ macro.displaySources(sources) }}
             </div>
 
         </div>
 
     </div>
-{% endblock %
+{% endblock %}

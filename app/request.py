@@ -1,7 +1,7 @@
 import urllib.request, json
 from flask.templating import render_template
 from .models import Article,Source
-import datetime,timeago
+import datetime, timeago
 
 
 api_key = None
@@ -42,21 +42,22 @@ def process_headline_results(headline_list):
     '''
     headline_results = []
     for headline_item in headline_list:
-        image = headline_item.get('urlToImage')
+        # image = headline_item.get('urlToImage')
         title = headline_item.get ('title')
         author = headline_item.get('author')
         description = headline_item.get('description')
         publishedAt = headline_item.get('publishedAt')
         url = headline_item.get('url')
+        urlToImage = headline_item.get('urlToImage')
         
         date_time_readable = datetime.datetime.strptime(publishedAt, '%Y-%m-%dT%H:%M:%SZ')
         now = datetime.datetime.now() + datetime.timedelta(seconds = 60 * 3.4)
         publishedAt =timeago.format(date_time_readable, now)
         
-        if image:
+        if urlToImage:
             if description:
                 if publishedAt:
-                    headline_object = Article(image,title,author,description,publishedAt,url)
+                    headline_object = Article(title,author,description,publishedAt,url,urlToImage)
                     headline_results.append(headline_object)
 
     return headline_results
@@ -134,17 +135,17 @@ def process_source_article_results(headline_list):
     '''
     headline_results=[]
     for headline_item in headline_list:
-        image = headline_item.get('urlToImage')
+        urlToImage = headline_item.get('urlToImage')
         title = headline_item.get ('title')
         author = headline_item.get('author')
         description = headline_item.get('description')
         publishedAt = headline_item.get('publishedAt')
         url = headline_item.get('url')
 
-        if image:
+        if urlToImage:
             if description:
                 if publishedAt:
-                    headline_object = Article(image,title,author,description,publishedAt,url)
+                    headline_object = Article(title,author,description,publishedAt,url, urlToImage)
                     headline_results.append(headline_object)
             
     return headline_results

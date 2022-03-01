@@ -2,34 +2,36 @@
 {% import 'macros.html' as macro%}
 
 {% block content %}
+<div class="container">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-5">
             <div class="">
                 GET NEWS HERE
             </div>
             <div>
-                {{ macro.displayNewList(category) }}
+                {{ macro.displayNewList(categories) }}
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-5">
             <div>
                 YOUR LATEST NEWS ARE HERE
             </div>
             <div>
-                {{ macro.displayNewList(new_list) }}
+                {{ macro.displayNewList(headlines) }}
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-2">
             <div>
                 THE SOURCES ARE HERE
             </div>
             <div>
-                {{ macro.displaySource(source_list) }}
+                {{ macro.displaySources(sources) }}
             </div>
 
         </div>
 
     </div>
+</div>
 {% endblock %}

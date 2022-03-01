@@ -20,7 +20,7 @@ def index():
     else:
         return render_template('index.html',categories=categories,headlines=headlines,sources=sources)
 
-@main.route('/categories/<category>')
+@main.route('/category/<category>')
 def category(category):
     '''
     method to render category page
@@ -28,7 +28,7 @@ def category(category):
     category = get_category(category)
     sources= get_source()
 
-    return render_template('categories.html',category = category,sources=sources)
+    return render_template('category.html',category = category,sources=sources)
 
 @main.route('/article/<id>')
 def article(id):

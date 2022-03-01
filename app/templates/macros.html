@@ -1,32 +1,29 @@
-{% macro displayNewList(new_list) %}
 
-    {% for new in new_list %}
-    <div class="">
-        <div class="img">
-            <a href="{{new.url}}"><img src="{{new.image}}"></a>
-        </div>
-        <div class="text">
-            <a href="{{new.url}}">{{new.title}}</a>
-            <p>{{new.description}}</p>
-            <p>Published at: {{new.publishedAt}}</p>
-        </div>
-    </div>
-    {% endfor %}
 
-{% endmacro %}
+{% macro displayNewList(headline_list) %}
 
-{% macro displayNewList(new_list) %}
-
-    {% for new in new_list %}
+    {% for headline in headline_list %}
+    <div>
     <li>
-        <span>{{new.publishedAt}}</span><a href="{{new.url}}">{{new.title}}</a>
-        <a href="new.url">ReadMore</a>
-    </li>
+        <div class="img">
+            <a href="{{headline.url}}"><img style="height: 10rem;width: 35rem;" src="{{headline.urlToImage}}" alt="Image"></a>
+        </div>
+        <br>
+        <div class="text">
+            <p>Description: {{headline.description}}</p>
+            <a href="{{headline.url}}"> {{headline.title}}</a>
+            
+            <p>Published : {{headline.time}}</p>
+        </div>
+            <a href="{{headline.url}}">{{headline.title}}</a></span></p>
+        
+        <a href="headline.url">ReadMore</a>
+</div>
     {% endfor %}
 
 {% endmacro %}
 
-{% macro displaySource(source_list) %}
+{% macro displaySources(source_list) %}
 
     {% for source in source_list %}
         <li>
