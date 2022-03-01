@@ -13,11 +13,7 @@ def configure_request(app):
     '''
     this is a function that will configure the requests
     '''
-    global 
-    api_key, 
-    source_url, 
-    category_url, 
-    headline_url
+    global api_key, source_url, category_url,headline_url
 
     api_key = app.config['NEWS_API_KEY']
     category_url = app.config['CATEGORY_URL']
