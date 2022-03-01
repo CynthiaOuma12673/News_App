@@ -153,5 +153,25 @@ def process_source_article_results(headline_list):
             
     return headline_results
 
+def search_topic(topic_name):
+    '''
+    this function will  get the json response to our source request
+    '''
+    search_topic_url = 'https://newsapi.org/v2/everything?apiKey={}&q={}'.format(api_key,topic_name)
+    with urllib.request.urlopen(search_topic_url) as url:
+        search_topic_data = url.read()
+        search_topic_response = json.loads(search_topic_data)
+        search_topic_results = None
+        
+        
+        if search_topic_response['articles']:
+            search_topic_list = search_topic_response['articles']
+            search_topic_results = process_headline_results((search_topic_list))
+
+            return search_topic_results
+
+        else:
+            return render_template('notfound.html')
+
 
 
