@@ -132,5 +132,26 @@ def get_source_articles(id):
             
     return source_results
 
+def process_source_article_results(headline_list):
+    '''
+    this is a function that process source result and transform them to an object list
+    '''
+    headline_results=[]
+    for headline_item in headline_list:
+        image = headline_item.get('urlToImage')
+        title = headline_item.get ('title')
+        author = headline_item.get('author')
+        description = headline_item.get('description')
+        publishedAt = headline_item.get('publishedAt')
+        url = headline_item.get('url')
+
+        if image:
+            if description:
+                if publishedAt:
+                    headline_object = Article(image,title,author,description,publishedAt,url)
+                    headline_results.append(headline_object)
+            
+    return headline_results
+
 
 
