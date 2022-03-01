@@ -9,11 +9,10 @@ This is an application that helps to those always miss the news to be able to ca
 ## User Stories
 The user would like to do the following :
 
-1. To create an account for the application or log into the application.
-2. Store my existing acounts login details for various accounts that i have registered for.
-3. Generate new password for an account that i haven't registered for and store it with the account name.
-4. Delete stored account login details that i do now want anymore.
-5. Copy my credentials to the clipboard
+1. As a user, I would like to see various news sources on the homepage of the application.
+2. As a user, I would also want to select a news source and see all news articles from the selected news source in the application.
+3. As a user, I would want to see the image, description and the time a news article was created.
+4. As a user, I would want to click on an article and read the full article on the source website.
 
 ## Installation / Setup instruction
 The application requires the following installations to operate
